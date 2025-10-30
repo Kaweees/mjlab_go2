@@ -3,8 +3,17 @@ name = "mjlab-go2"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10,<3.14"
 dependencies = ["mjlab"]
+
+[project.scripts]
+mjlab_train = "mjlab_go2.scripts.train:main"
+mjlab_play = "mjlab_go2.scripts.play:main"
+
+[tool.ruff]
+src = ["src"]
+indent-width = 2
+exclude = ["src/mjlab/third_party", "typings"]
 
 [tool.uv.sources]
 mjlab = { git = "https://github.com/mujocolab/mjlab", rev = "main" }
