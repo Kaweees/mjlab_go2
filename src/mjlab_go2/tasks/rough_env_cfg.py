@@ -1,13 +1,13 @@
 from dataclasses import dataclass, replace
 
-from mjlab.asset_zoo.robots.unitree_go2.go2_constants import (
+from mjlab_go2.robot.go2_constants import (
   GO2_ACTION_SCALE,
   GO2_ROBOT_CFG,
 )
+from mjlab.sensor import ContactSensorCfg
 from mjlab.tasks.velocity.velocity_env_cfg import (
   LocomotionVelocityEnvCfg,
 )
-from mjlab.utils.spec_config import ContactSensorCfg
 
 
 @dataclass

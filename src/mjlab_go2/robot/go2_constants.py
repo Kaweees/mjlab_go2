@@ -3,6 +3,8 @@
 from pathlib import Path
 
 import mujoco
+import os
+
 
 from mjlab import MJLAB_SRC_PATH
 from mjlab.entity import EntityArticulationInfoCfg, EntityCfg
@@ -13,12 +15,8 @@ from mjlab.utils.spec_config import ActuatorCfg, CollisionCfg
 ##
 # MJCF and assets.
 ##
-
-GO2_XML: Path = (
-  MJLAB_SRC_PATH / "asset_zoo" / "robots" / "unitree_go2" / "xmls" / "go2.xml"
-)
-assert GO2_XML.exists()
-
+GO2_XML: Path = Path(os.path.dirname(__file__)) / "xmls" / "go2.xml"
+assert GO2_XML.exists(), f"XML not found: {GO2_XML}"
 
 def get_assets(meshdir: str) -> dict[str, bytes]:
   assets: dict[str, bytes] = {}
