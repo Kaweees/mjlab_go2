@@ -2,17 +2,21 @@
   pkgs ? import <nixpkgs> { },
 }:
 
+let
+  python = pkgs.python312;
+in
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    python312 # Python 3.12
-    uv # Python package manager
-    nixfmt # Nix formatter
-    just # Just
+    python
+    uv
+    nixfmt
+    just
   ];
 
   # Shell hook to set up environment
   shellHook = ''
     export TMPDIR=/tmp
+    export UV_PYTHON="${python}/bin/python"
     just install
   '';
 }
