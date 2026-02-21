@@ -27,7 +27,7 @@ dependencies = [
 go2_mjlab = "go2_mjlab.tasks"
 
 [dependency-groups]
-dev = ["pre-commit>=4.1.0", "ipykernel>=6.29.5"]
+dev = ["pre-commit", "ipykernel"]
 
 [project.scripts]
 go2_mjlab = "go2_mjlab:main"
